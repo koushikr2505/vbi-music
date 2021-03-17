@@ -1,0 +1,37 @@
+.playlist-items{
+    color: var(--primary-text-color);
+    margin-top: 15px;
+    width: calc(100% - 50px);
+    margin: 0 auto;
+}
+.playlist-items ol{
+    list-style: none;
+    padding: 0;
+}
+.playlist-items li{
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+
+.playlist-items li a{
+    display: inline-block;
+    padding: 5px 0; 
+    position: relative;
+}
+
+.playlist-items li a:after{
+    content: '';
+    height: 3px;
+    width: 0px;
+    background-color: var(--primary-text-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.playlist-items li a:hover::after{
+    width: 100%;
+}

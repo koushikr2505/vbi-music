@@ -1,0 +1,6 @@
+.soft-divider{
+    width: calc(100% - 50px);
+    height: 1px;
+    background: var(--soft-divider);
+    margin: 0 auto;
+}

@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import AppDrawer from './components/AppDrawer'
+import AllSongs from './pages/AllSongs'
+import CreatePlaylist from './pages/CreatePlaylist'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="grid-container light-theme">
+        <AppDrawer></AppDrawer>
+        <div className="grid-item app-content">
+          <div className="app-bg"></div>
+          <div className="app-holder">
+            <Switch>
+              <Route path='/newplaylist' component={CreatePlaylist} />
+              <Route path='/' component={AllSongs} />
+            </Switch>
+          </div>
+
+        </div>
+      </div>
+    </Router>
+
   );
 }
 

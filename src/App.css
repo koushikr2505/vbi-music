@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+body{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+    box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.light-theme {
+    --primary-color: #10B981;
+    --secondary-color: #F3F4F6;
+    --disabled-color: #E5E7EB;
+    --primary-text-color: #1F2937;
+    --primary-hover: #065F46;
+    --secondary-hover: #E5E7EB;
+    --soft-divider: #eeeeee;
+    --white: #F9FAFB;
+    --menu-item: #ECFDF5;
+    --icon-color: #065F46;
+ }
+ .dark-theme {
+    --primary-color: #000000;
+    --disabled-color: #4a4a4b;
+ }
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% auto;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .grid-item {
+    /* border: 1px solid var(--primary-color); */
   }
-  to {
-    transform: rotate(360deg);
+
+  .app-content{
+      background: var(--secondary-color);
+      min-height: 100vh;
   }
+
+  .btn-primary{    
+        display: block;
+        width: 150px;
+        height: 45px;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 45px;
+        text-decoration: none;
+        background: var(--primary-color);
+        color: var(--white);
+        font-weight: 900;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        /* border-radius: 50px; */
+        transition: background 0.3s ease-in-out;
+  }
+  .btn-primary:hover{
+    background: var(--primary-hover);
+  }
+  .app-bg{
+    min-height: 300px;
+    background: url('app-bg.jpg') left no-repeat #000;
+    background-size: contain;
+    background-position-x: 60px;
+  }
+  .app-holder {
+    max-width: 90%;
+    background: var(--white);
+    text-align: center;
+    margin: -35px auto 0 auto;
+    border-radius: 10px;
+    padding-top: 20px;
 }
+  .app-holder h1{
+      margin: 0;
+  }

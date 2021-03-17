@@ -1,0 +1,36 @@
+.logo{
+    font-weight: 900;
+    color: var(--primary-text-color);
+    font-size:24px;
+    letter-spacing: 1px;
+    padding: 20px 20px;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--soft-divider);
+    line-height: 1;
+}
+.logo-icon{
+    color: var(--primary-color);
+    /* padding-top: 2px; */
+    /* margin-left: 5px; */
+    animation: rotation 12s infinite linear;
+    transform-origin: 50% 50%;
+    width: 26px;
+    height: 26px;
+}
+.logo-name{
+    margin-right: 8px;
+}
+.sub-text{
+    font-size: 13px;
+    width: 100%;
+    font-weight: normal;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
