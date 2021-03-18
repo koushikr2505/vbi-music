@@ -23,7 +23,7 @@ body{
  }
 .grid-container {
     display: grid;
-    grid-template-columns: 20% auto;
+    grid-template-columns: 100%;
   }
   
   .grid-item {
@@ -33,6 +33,7 @@ body{
   .app-content{
       background: var(--secondary-color);
       min-height: 100vh;
+      margin-left: 20%;
   }
 
   .btn-primary{    
