@@ -1,0 +1,28 @@
+.search-outer-wrapper{
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.search-container {
+    position: relative;
+}
+input.search-bar {
+    margin: 25px 0;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    height: 35px;
+    padding: 0 15px;
+    border-radius: 50px;
+    color: var(--primary-text-color);
+    font-family: 'Work Sans', sans-serif;
+}
+input.search-bar:focus{
+    outline: none;
+}
+.find-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    color: var(--primary-color);
+    transform: translate(-50%, -50%);
+}

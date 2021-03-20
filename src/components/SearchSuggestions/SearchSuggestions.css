@@ -1,0 +1,26 @@
+ul.suggestions-wrapper {
+    padding: 0;
+    list-style: none;
+    background: var(--white);
+    margin: 0;
+    border: 1px solid var(--soft-divider);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 70px;
+    z-index: 15;
+}
+.suggestions-wrapper li{
+    margin-bottom: 0px;
+    cursor: pointer;
+    padding: 15px;
+}
+.suggestions-wrapper li:nth-child(even){
+    background-color: var(--secondary-color);
+}
+
+.suggestions-wrapper li:hover{
+    background-color: var(--secondary-hover);
+}

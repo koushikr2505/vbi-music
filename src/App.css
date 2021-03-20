@@ -1,9 +1,13 @@
-body{
+body,input,button{
     font-family: 'Work Sans', sans-serif;
     font-size: 14px;
 }
 *{
     box-sizing: border-box;
+}
+img{
+  max-width: 100%;
+  height: auto;
 }
 .light-theme {
     --primary-color: #10B981;
@@ -16,6 +20,7 @@ body{
     --white: #F9FAFB;
     --menu-item: #ECFDF5;
     --icon-color: #065F46;
+    --warn: #EF4444;
  }
  .dark-theme {
     --primary-color: #000000;
@@ -33,7 +38,12 @@ body{
   .app-content{
       background: var(--secondary-color);
       min-height: 100vh;
-      margin-left: 20%;
+      margin-left: 0%;
+      transition: all 0.2s ease-in;
+  }
+  .nav-open .app-content{
+    margin-left: 20%;
+    
   }
 
   .btn-primary{    
@@ -67,8 +77,109 @@ body{
     text-align: center;
     margin: -35px auto 0 auto;
     border-radius: 10px;
-    padding-top: 20px;
+    padding: 20px 0;
 }
   .app-holder h1{
       margin: 0;
+  }
+
+  .hamburger-container {
+    width: 28px;
+    position: fixed;
+    top: 25px;
+    left: 20px;
+    z-index: 10;
+}
+  span.hamburger{
+    border-radius: 4px;
+    width: 28px;
+    height: 4px; 
+    background-color: var(--primary-color);  
+    display: block; 
+    margin-bottom: 4px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  .hamburger-container input{
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    
+    cursor: pointer;
+    
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    
+    -webkit-touch-callout: none;
+  }
+  .span-container span:nth-child(1)
+  {
+    transform-origin: 0% 0%;
+  }
+  
+  .span-container span:nth-last-child(2)
+  {
+    transform-origin: 0% 100%;
+  }
+  
+  .hamburger-container input:checked + div span
+  {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background:var(--primary-color); 
+  }
+  
+  .hamburger-container input:checked + div span:nth-last-child(3)
+  {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  .hamburger-container input:checked + div span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, 14px);
+  }
+  
+  .hamburger-container input:checked + div span{
+    opacity: 1;
+        transform: rotate(45deg) translate(-3px, -16px);
+    background: var(--primary-color); 
+  }
+
+  button.primary-btn {
+    margin: 25px 0;
+    background: transparent;
+    border: 0 none;
+    color: var(--white);
+    background: var(--primary-color);
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease-in-out;
+}
+button.primary-btn:hover{
+  background: var(--primary-hover);
+  outline: none;
+}
+button.primary-btn:focus{
+  outline: none;
+}
+
+.title-name{
+  margin-top: 0px;
+}
+  @media all and (min-width: 640px){
+    .app-holder{
+      padding: 40px 0;
+    }
   }

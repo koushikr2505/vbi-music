@@ -1,0 +1,62 @@
+.song-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--white);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+    color: var(--primary-text-color);
+    margin-top: 15px;
+}
+.song-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    width: 100%;
+    text-align: left;
+}
+.artist-name {
+    margin: 5px 0;
+}
+.title-wrap {
+    width: 60%;
+}
+.user-actions,.song-duration{
+    width: 20%;
+    text-align: right;
+}
+.song-duration{
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.song-title {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.artist-name,.album-name{
+    font-size: 14px;
+}
+.delete-icon{
+    color: var(--warn);
+}
+.add-icon{
+    color: var(--primary-color);
+}
+@media all and (min-width: 640px){
+    .song-wrapper{
+        padding: 20px;
+        max-width: 620px;
+        flex-wrap: nowrap;
+    }
+    .title-wrap{
+        padding: 15px;
+    }
+    
+}

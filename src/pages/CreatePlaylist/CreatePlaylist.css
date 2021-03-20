@@ -1,0 +1,23 @@
+.playlist-form{
+    margin-top: 40px;
+}
+.playlist-title{
+    border: 0px none;
+    border-bottom: 1px solid var(--primary-text-color);
+    height: 35px;
+    background: transparent;
+    width: 100%;
+    max-width: 250px;
+    transition: border-color 0.2s ease-in-out;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--primary-text-color);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    /* margin-bottom: 15px; */
+}
+.playlist-title:focus{
+    border-color: var(--primary-color);
+    outline: none;
+}

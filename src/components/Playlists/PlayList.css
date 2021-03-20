@@ -19,6 +19,8 @@
     display: inline-block;
     padding: 5px 0; 
     position: relative;
+    text-decoration: none;
+    color: var(--primary-text-color);
 }
 
 .playlist-items li a:after{

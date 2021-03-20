@@ -8,11 +8,10 @@
     align-items: flex-start;
     border-bottom: 1px solid var(--soft-divider);
     line-height: 1;
+    justify-content: center;
 }
 .logo-icon{
     color: var(--primary-color);
-    /* padding-top: 2px; */
-    /* margin-left: 5px; */
     animation: rotation 12s infinite linear;
     transform-origin: 50% 50%;
     width: 26px;
@@ -25,6 +24,7 @@
     font-size: 13px;
     width: 100%;
     font-weight: normal;
+    text-align: center;
 }
 @keyframes rotation {
     from {
