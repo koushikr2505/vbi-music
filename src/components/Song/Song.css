@@ -43,12 +43,18 @@
 .artist-name,.album-name{
     font-size: 14px;
 }
+.delete-icon,.add-icon{
+    cursor: pointer;
+}
 .delete-icon{
     color: var(--warn);
 }
 .add-icon{
     color: var(--primary-color);
 }
+/* .new-actions .add-icon{
+    margin-right: 10px;
+} */
 @media all and (min-width: 640px){
     .song-wrapper{
         padding: 20px;

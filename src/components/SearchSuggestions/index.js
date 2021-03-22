@@ -7,7 +7,7 @@ export default function SearchSuggestions(props){
         setVisibility(props.show) 
     }, [props.show])
     return(
-        visibility && <ul className="suggestions-wrapper">
+         <ul className="suggestions-wrapper">
             {props.suggestions.length > 0 && props.suggestions.map((song) => {return <li onClick={(e) => { props.setSuggestion(song.title); setVisibility(false)}} key={song.id}>{song.title}</li>})}
         </ul>
     )

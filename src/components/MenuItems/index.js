@@ -1,12 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './MenuItems.css'
-import { MusicNoteBeamed, MusicNoteList , PlusSquareFill } from 'react-bootstrap-icons'
+import { MusicNoteBeamed, MusicNoteList, PlusSquareFill } from 'react-bootstrap-icons'
 import Divider from '../Divider'
-import Playlists from '../Playlists'
 export default function MenuItems() {
     return (
-        <div className="menu-wrapper">
+        <React.Fragment>
             <ul className="menu-links">
                 <li>
                     <NavLink exact activeClassName="active" to="/">
@@ -14,7 +13,7 @@ export default function MenuItems() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact activeClassName="active" to="newplaylist">
+                    <NavLink exact activeClassName="active" to="/newplaylist">
                         <span className="icon"> <PlusSquareFill size={18}></PlusSquareFill> </span> <span>Create Playlist</span>
                     </NavLink>
                 </li>
@@ -23,8 +22,9 @@ export default function MenuItems() {
                 <span className="icon"> <MusicNoteList size={18}></MusicNoteList> </span> <span>Playlists</span>
             </div>
             <Divider></Divider>
-            <Playlists></Playlists>
-        </div>
+
+        </React.Fragment>
+
     )
 }
 

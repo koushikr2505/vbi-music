@@ -26,6 +26,15 @@ img{
     --primary-color: #000000;
     --disabled-color: #4a4a4b;
  }
+ .remove-default-btn-styles {
+  background: transparent;
+  border: 0px none;
+  margin: 0;
+  padding: 0;
+}
+.remove-default-btn-styles:focus{
+  outline: none;
+}
 .grid-container {
     display: grid;
     grid-template-columns: 100%;
@@ -180,6 +189,6 @@ button.primary-btn:focus{
 }
   @media all and (min-width: 640px){
     .app-holder{
-      padding: 40px 0;
+      padding: 40px 0 60px 0px;
     }
   }

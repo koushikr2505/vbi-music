@@ -1,8 +1,20 @@
-import React from 'react'
+import React , {useState,useEffect} from 'react'
 import { TrashFill , PlusSquareFill} from 'react-bootstrap-icons'
 import './Song.css'
 
 export default function Song(props){
+    const[addedState,setAddedState] = useState();
+    const handleAddSong = (e) =>{
+        props.addToPlaylist(props.addedSongs.concat(props.song));
+        setAddedState('added');
+    }
+    const removeSong = () =>{
+        
+       let updatedSongs = props.addedSongs;
+       updatedSongs.splice(updatedSongs.findIndex((song)=> {return song.id === props.song.id}),1);
+       console.log(updatedSongs);
+       setAddedState('removed');
+    }
     
     return(
         <React.Fragment>
@@ -21,7 +33,10 @@ export default function Song(props){
                     </div>
                     <div className="user-actions">
                         <div>
-                            {props.page==="createplaylist"?<TrashFill className="delete-icon" size={20}></TrashFill>:<PlusSquareFill className="add-icon" size={20}></PlusSquareFill>}
+                            { props.page==="createplaylist"?<div className="new-actions">
+                               {addedState!=='added'?<PlusSquareFill onClick={handleAddSong} className="add-icon" size={20}></PlusSquareFill>:<TrashFill onClick = {removeSong} className="delete-icon" size={20}></TrashFill>}</div>:
+                                <PlusSquareFill className="add-icon" size={20}></PlusSquareFill>
+                            }
                         </div>                        
                     </div>
                 </div>

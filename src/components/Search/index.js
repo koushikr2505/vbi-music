@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import './Search.css'
-import { Search as Find } from 'react-bootstrap-icons'
+import { Search as Find ,XCircle } from 'react-bootstrap-icons'
 import useDebounce from '../Debounce'
 import SearchSuggestions from '../SearchSuggestions'
 
-export default function Search(props) {
+export default function SearchBar(props) {
     const [query, setQuery] = useState('');
     const [suggestions,setSuggestions] = useState('default');
+
     const debouncedValue = useDebounce(query, 500)
     
     const handleChange = (e) => {
+        
         setQuery(e.target.value);
-        e.target.value !==''?setSuggestions(''):setSuggestions('default');
+        if(e.target.value !==''){
+            setSuggestions('');
+            // props.isDefaultSearch(false);
+        }else{
+            setSuggestions('default');
+            // props.isDefaultSearch(true);
+        }
+        // e.target.value !==''?setSuggestions(''):setSuggestions('default');props.isDefaultSearch(false);
     }
+
+    const clearSearch = () => setQuery('');
 
     useEffect(() => {
 
@@ -26,9 +37,10 @@ export default function Search(props) {
         <div className="search-outer-wrapper">
             <div className="search-container">
                 <Find className="find-icon"></Find>
+                <XCircle size={16} className="cancel-icon" onClick={clearSearch}></XCircle>
                 <input className="search-bar" value={query} type="text" placeholder="Search songs" onChange={handleChange}></input>
             </div>
-            {suggestions !=='default' && <SearchSuggestions show={true} suggestions={suggestions} setSuggestion = {setQuery}></SearchSuggestions>}
+            {suggestions !=='default' &&  suggestions!==''&&<SearchSuggestions suggestions={suggestions} setSuggestion = {setQuery}></SearchSuggestions>}
         </div>
     )
 }

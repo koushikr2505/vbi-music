@@ -15,14 +15,22 @@ input.search-bar {
     border-radius: 50px;
     color: var(--primary-text-color);
     font-family: 'Work Sans', sans-serif;
+    padding-right: 55px;
 }
 input.search-bar:focus{
     outline: none;
 }
-.find-icon{
+.find-icon,.cancel-icon{
     position: absolute;
-    right: 10px;
     top: 50%;
-    color: var(--primary-color);
     transform: translate(-50%, -50%);
+}
+.find-icon{
+    right: 10px;
+    color: var(--primary-color);
+}
+.cancel-icon{
+    color: var(--warn);
+    right: 30px;
+    cursor: pointer;
 }
