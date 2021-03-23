@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { useParams } from "react-router-dom";
+import {Link, useParams } from "react-router-dom";
 import Songs from '../../components/Songs'
 
 export default function Playlist(props) {
@@ -21,13 +21,10 @@ export default function Playlist(props) {
     }
 
     return (
-
         <React.Fragment>
-            {playlist && playlist.songs.length > 0 ? <div><input type="text" value={playlistTitle} className="playlist-title" onChange = {(e)=> setPlaylistTitle(e.target.value)} placeholder="Playlist Title"></input>
+            {playlist && playlist.songs.length > 0 ? <div><input type="text" readOnly value={playlistTitle} className="playlist-title" onChange = {(e)=> setPlaylistTitle(e.target.value)} placeholder="Playlist Title"></input> <Link to={`/edit/${playlistid}`}>Edit Playlist</Link>
                 <Songs albums={props.albums} Songs={playlist.songs} page="editplaylist"></Songs>
-                <button className="primary-btn" onClick = {handleSave} type="submit">Save Playlist</button></div> : <div>No songs</div>}
+                </div> : <div>No songs</div>}
         </React.Fragment>
-
-
     )
 }

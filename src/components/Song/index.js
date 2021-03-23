@@ -4,15 +4,28 @@ import './Song.css'
 
 export default function Song(props){
     const[addedState,setAddedState] = useState();
-    const handleAddSong = (e) =>{
-        props.addToPlaylist(props.addedSongs.concat(props.song));
-        setAddedState('added');
-    }
-    const removeSong = () =>{
+    useEffect(() => {
+        console.dir("prop:" + props.isAdded);
+        setAddedState(props.isAdded > -1 && props.isAdded!=='' ? 'added':'removed')
+    },[])
+    const handleAddSong = (page) =>{
         
+        if(page === 'createplaylist' || page === 'editplaylist'){
+            props.addToPlaylist(props.addedSongs.concat(props.song));
+            setAddedState('added');
+            console.log(props.isAdded);
+            
+        }
+        if(page === 'editplaylist'){
+            props.addOnEdit(props.addedSongs.concat(props.song));
+            setAddedState('added');
+        }
+    }
+    const removeSong = () => {        
        let updatedSongs = props.addedSongs;
        updatedSongs.splice(updatedSongs.findIndex((song)=> {return song.id === props.song.id}),1);
        console.log(updatedSongs);
+       props.addToPlaylist(updatedSongs);
        setAddedState('removed');
     }
     
@@ -33,9 +46,8 @@ export default function Song(props){
                     </div>
                     <div className="user-actions">
                         <div>
-                            { props.page==="createplaylist"?<div className="new-actions">
-                               {addedState!=='added'?<PlusSquareFill onClick={handleAddSong} className="add-icon" size={20}></PlusSquareFill>:<TrashFill onClick = {removeSong} className="delete-icon" size={20}></TrashFill>}</div>:
-                                <PlusSquareFill className="add-icon" size={20}></PlusSquareFill>
+                            { (props.page ==="createplaylist" || props.page ==="editplaylist") && <div className="new-actions">
+                               {addedState!=='added' || props.isAdded === -1 ?<PlusSquareFill onClick={() => handleAddSong(props.page)} className="add-icon" size={20}></PlusSquareFill>:<TrashFill onClick = {removeSong} className="delete-icon" size={20}></TrashFill>}</div>
                             }
                         </div>                        
                     </div>

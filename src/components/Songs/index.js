@@ -4,12 +4,28 @@ import Song from '../Song'
 
 
 export default function Songs(props) {
+    let isAddedSong;   
+  
+    const [addedOnEdit,setOnEdit] = useState(props.previouslyadded && props.previouslyadded);
     
+    
+    const isAlreadyAdded = (page,song) => {
+         if(page==='createplaylist'){
+            console.log('create');
+            isAddedSong = props.addedSongs && props.addedSongs.length>0 && props.addedSongs.findIndex(addedsong => {return addedsong.id === song.id});
+         }else if(page==='editplaylist'){
+             console.log(song);
+            isAddedSong = addedOnEdit && addedOnEdit.length>0 && addedOnEdit.findIndex(alreadyadded => {return alreadyadded.id === song.id});
+         }
+         return isAddedSong;
+    }
+     
+    // addedAlready = {props.addedSongs && props.addedSongs.findIndex(song => {return song.id === props.song.id})}
     return (
         <div>
             {props.Songs.length>0 && props.albums.length>0 && 
             props.Songs.map((song) => {
-                return <Song song={song} addedSongs = {props.addedSongs} addToPlaylist={props.addToPlaylist} key={song.id} album={props.albums.find(album => {return album.id === song.albumId})} page={props.page}  ></Song>
+                return <Song song={song} isAdded={isAlreadyAdded(props.page,song)} addedSongs = {props.page==='createplaylist'?props.addedSongs:props.page==='editplaylist'?props.previouslyadded:props.addedSongs} addOnEdit = {setOnEdit} previouslyadded = {props.previouslyadded} addToPlaylist={props.addToPlaylist} key={song.id} album={props.albums.find(album => {return album.id === song.albumId})} page={props.page}  ></Song>
             })            
             }            
         </div>

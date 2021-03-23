@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import SearchBar from '../../components/Search'
 import './CreatePlaylist.css'
 import Songs from '../../components/Songs'
@@ -16,7 +16,7 @@ export default function CreatePlaylist(props) {
 
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
-
+    
     const savePlaylist = (e) => {
         e.preventDefault();
         let createdPlaylist = {            
@@ -47,10 +47,8 @@ export default function CreatePlaylist(props) {
 
             <div className="playlist-form">
                 <form>
-                    <input type="text" onChange = {(e)=>setPlaylistTitle(e.target.value)} className="playlist-title" placeholder="Playlist Title"></input>
+                    <input type="text" onChange = {(e)=>setPlaylistTitle(e.target.value)} className="playlist-title" placeholder="Playlist Title"></input> <button onClick={savePlaylist} className="primary-btn save-btn" type="submit">Save Playlist</button>
                     {songList.length > 0  ? <Songs albums={props.albums} Songs={songList} addedSongs = {addedSongs} addToPlaylist={addSongToPlaylist} page="createplaylist"></Songs> : <div>No Songs</div>}
-                    
-                    <button onClick={savePlaylist} className="primary-btn" type="submit">Save Playlist</button>
                 </form>
             </div>
 

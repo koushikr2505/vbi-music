@@ -1,10 +1,12 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop'
 import AppDrawer from './components/AppDrawer'
 import AllSongs from './pages/AllSongs'
 import CreatePlaylist from './pages/CreatePlaylist'
 import Playlist from './pages/Playlist'
+import Edit from './pages/Edit'
 
 function App() {
   
@@ -78,13 +80,16 @@ function App() {
               <Switch>
                 <Route path="/newplaylist" render={() => albumData.length>0 && albumData!=='default'&& songsData.length>0 && songsData!=='default'&&<CreatePlaylist refresh ={refreshlist} albums={JSON.parse(albumData)} songs={JSON.parse(songsData)}></CreatePlaylist>}/>
                 <Route path="/playlist/:playlistid" render={() => albumData.length>0 && albumData!=='default'&& songsData.length>0 && songsData!=='default'&&<Playlist updatedplaylists={playlists} refresh={refreshlist} albums={JSON.parse(albumData)} songs={JSON.parse(songsData)}></Playlist>} />
+                <Route path="/edit/:playlistid" render={() => albumData.length>0 && albumData!=='default'&& songsData.length>0 && songsData!=='default'&&<Edit updatedplaylists={playlists} refresh={refreshlist} albums={JSON.parse(albumData)} songs={JSON.parse(songsData)}></Edit>} />
                 <Route path='/playlist' render={() => albumData.length>0 && albumData!=='default'&& songsData.length>0 && songsData!=='default'&&<Playlist refresh={refreshlist} albums={JSON.parse(albumData)} songs={JSON.parse(songsData)}></Playlist>} />
                 <Route path='/' render={() =>  albumData.length>0 && albumData!=='default'&& songsData.length>0 && songsData!=='default'&&<AllSongs albums={JSON.parse(albumData)} songs={JSON.parse(songsData)}></AllSongs>} />
               </Switch>
+              <ScrollToTop></ScrollToTop>
             </div>
           </div>
         </div>
       </div>
+      
     </Router>
 
   );

@@ -74,6 +74,9 @@ img{
   .btn-primary:hover{
     background: var(--primary-hover);
   }
+  button.primary-btn.save-btn {
+    margin: 25px 40px;
+}
   .app-bg{
     min-height: 300px;
     background: url('app-bg.jpg') left no-repeat #000;
