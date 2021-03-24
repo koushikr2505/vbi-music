@@ -55,7 +55,7 @@ img{
     
   }
 
-  .btn-primary{    
+  .btn-primary,a.edit-button{    
         display: block;
         width: 150px;
         height: 45px;
@@ -68,14 +68,16 @@ img{
         font-weight: 900;
         letter-spacing: 1px;
         text-transform: uppercase;
-        /* border-radius: 50px; */
         transition: background 0.3s ease-in-out;
   }
-  .btn-primary:hover{
+  .btn-primary:hover,a.edit-button:hover{
     background: var(--primary-hover);
   }
   button.primary-btn.save-btn {
-    margin: 25px 40px;
+    margin: 0px 40px;
+}
+a.edit-button{
+  margin-bottom: 25px;
 }
   .app-bg{
     min-height: 300px;
@@ -84,7 +86,7 @@ img{
     background-position-x: 60px;
   }
   .app-holder {
-    max-width: 90%;
+    max-width: 98%;
     background: var(--white);
     text-align: center;
     margin: -35px auto 0 auto;
@@ -194,4 +196,10 @@ button.primary-btn:focus{
     .app-holder{
       padding: 40px 0 60px 0px;
     }
+    button.primary-btn.save-btn {
+      margin: 25px 40px;
+  }
+  .app-holder{
+    max-width: 90%;
+  }
   }

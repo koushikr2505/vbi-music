@@ -6,9 +6,18 @@
     font-weight: 500;
     cursor: pointer;
     position: fixed;
-    right: 5vw;
-    bottom: 60px;
+    right: 2vw;
+    bottom: 10px;
 }
 .scrolltop div{
-    margin-right: 5px;
+    font-size: 0px;
+}
+
+@media all and (min-width: 640px){
+    .scrolltop{
+        right: 1vw;
+        
+    }
+ 
+  
 }

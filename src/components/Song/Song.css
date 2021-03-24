@@ -20,16 +20,20 @@
     padding: 15px 0;
     width: 100%;
     text-align: left;
+    justify-content: space-between;
 }
 .artist-name {
     margin: 5px 0;
 }
 .title-wrap {
-    width: 60%;
+    width: 70%;
 }
 .user-actions,.song-duration{
-    width: 20%;
+    width: 15%;
     text-align: right;
+}
+.user-actions:empty{
+    width: 0px;
 }
 .song-duration{
     font-weight: 600;
@@ -37,11 +41,11 @@
 }
 .song-title {
     font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-size: 13px;
 }
 .artist-name,.album-name{
-    font-size: 14px;
+    font-size: 13px;
 }
 .delete-icon,.add-icon{
     cursor: pointer;

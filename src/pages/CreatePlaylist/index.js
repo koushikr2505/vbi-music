@@ -48,16 +48,16 @@ export default function CreatePlaylist(props) {
             <div className="playlist-form">
                 <form>
                     <input type="text" onChange = {(e)=>setPlaylistTitle(e.target.value)} className="playlist-title" placeholder="Playlist Title"></input> <button onClick={savePlaylist} className="primary-btn save-btn" type="submit">Save Playlist</button>
-                    {songList.length > 0  ? <Songs albums={props.albums} Songs={songList} addedSongs = {addedSongs} addToPlaylist={addSongToPlaylist} page="createplaylist"></Songs> : <div>No Songs</div>}
+                    {songList.length > 0  ? <Songs albums={props.albums} Songs={songList} addedSongs = {addedSongs} addToPlaylist={addSongToPlaylist} previouslyadded={[]} page="createplaylist"></Songs> : <div>No Songs</div>}
                 </form>
             </div>
 
-            <div className="added-songs-wrapper">
+            {/* <div className="added-songs-wrapper">
                 <button className="remove-default-btn-styles added-songs" onClick={onOpenModal}>View Added Songs</button>
                 <Modal open={open} onClose={onCloseModal} center>
                     <AddedSongs></AddedSongs>
                 </Modal>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,0 +1,12 @@
+.edit-shuffle {
+    display: flex;
+    max-width: 340px;
+    margin: 25px auto;
+    justify-content: space-evenly;
+}
+.edit-shuffle a,.edit-shuffle button.primary-btn.save-btn{
+    margin: 0;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: none;
+}

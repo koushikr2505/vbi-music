@@ -1,6 +1,6 @@
 .search-outer-wrapper{
     position: relative;
-    max-width: 300px;
+    max-width: 220px;
     margin: 0 auto;
 }
 .search-container {
@@ -33,4 +33,10 @@ input.search-bar:focus{
     color: var(--warn);
     right: 30px;
     cursor: pointer;
+}
+
+@media all and (min-width: 640px){
+    .search-outer-wrapper{
+        max-width: 300px;
+    }
 }

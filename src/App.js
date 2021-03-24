@@ -10,7 +10,7 @@ import Edit from './pages/Edit'
 
 function App() {
   
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [albumData, setAlbumData] = useState('default');
   const [songsData, setSongsData] = useState('default');
   const [playlists,refreshlist] = useState([]);
@@ -20,7 +20,7 @@ function App() {
     function handleResize() {
       window.innerWidth > 648 ? setOpen(true) : setOpen(true);
     }
-    window.addEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
 
     function fetchFrom(url,setData) {
       fetch(url)
