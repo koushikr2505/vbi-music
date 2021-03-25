@@ -81,9 +81,9 @@ a.edit-button{
 }
   .app-bg{
     min-height: 300px;
-    background: url('app-bg.jpg') left no-repeat #000;
-    background-size: contain;
-    background-position-x: 60px;
+    background: url('artistimage.jpg') left no-repeat #000;
+    background-size: 75vw auto;
+    background-position-x: 0;
   }
   .app-holder {
     max-width: 98%;
@@ -192,6 +192,18 @@ button.primary-btn:focus{
 .title-name{
   margin-top: 0px;
 }
+
+button.primary-btn.save-btn[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+button.primary-btn.save-btn[disabled]:hover{
+  background-color: var(--primary-color);
+}
+
+.error-msg{
+  color: var(--warn);
+}
   @media all and (min-width: 640px){
     .app-holder{
       padding: 40px 0 60px 0px;
@@ -201,5 +213,8 @@ button.primary-btn:focus{
   }
   .app-holder{
     max-width: 90%;
+  }
+  .app-bg{
+    background-size: 33vw;
   }
   }

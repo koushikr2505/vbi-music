@@ -6,9 +6,10 @@
     opacity: 0;
     overflow: hidden;
    border-right: 1px solid var(--soft-divider);
-   transition: all 0.1s ease-in;
+   transition: width 0.1s ease-in;
    overflow-y: auto;
    height: 100%;
+   -webkit-transform: translateZ(0);
 }
 
 .nav-open .app-menu{

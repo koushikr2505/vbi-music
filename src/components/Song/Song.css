@@ -68,5 +68,7 @@
     .title-wrap{
         padding: 15px;
     }
-    
+    .song-title{
+        font-size: 14px;
+    }
 }

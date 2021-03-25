@@ -1,43 +1,49 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { TrashFill, PlusSquareFill } from 'react-bootstrap-icons'
+
 import './Song.css'
 
 export default function Song(props) {
-    const [addedState, setAddedState] = useState();
-    useEffect(() => {
-        console.dir("prop:" + props.isAdded);
-        setAddedState(props.isAdded > -1 && props.isAdded !== '' ? 'added' : 'removed')
-    }, [])
+    
+    const [addedState, setAddedState] = useState(props.isAdded > -1 && props.isAdded !== '' ? 'added' : 'removed');
+
     const handleAddSong = (page) => {
 
         if (page === 'createplaylist') {
-            let updatedSongs = props.addedSongs.concat(props.song);
-            props.addToPlaylist(updatedSongs);
+            
             setAddedState('added');
-            console.log(props.isAdded);
-        } else if (page === 'editplaylist') {
-            props.previouslyadded.push(props.song);
-            props.addToPlaylist(props.previouslyadded);
-            props.addOnEdit(props.previouslyadded);
-
+            let song = props.song;
+            song.createdat = new Date().toISOString(); 
+            props.addedSongs.push(song);
+            props.addToPlaylist(props.addedSongs);
+            
+        } else if (page === 'editplaylist' || page==='addmore') {
+           
+            let updatedSongs = props.previouslyadded;
+            let song = props.song;
+            song.createdat = new Date().toISOString();
+            updatedSongs = updatedSongs.concat(song);
+            props.addToPlaylist(updatedSongs);
+            props.addOnEdit(updatedSongs);
+            props.refreshExisting(updatedSongs);
             setAddedState('added');
         }
 
     }
     const removeSong = (page) => {
-        if (page === 'createplaylist') {
+        if (page === 'createplaylist' ) {
             let updatedSongs = props.addedSongs;
-            updatedSongs = updatedSongs.filter((song) => { return song.id !== props.song.id });
-            console.log('aftr del');
-            console.log(updatedSongs);
+            let indexToRemove = props.addedSongs.findIndex((item) => { return item.createdat === props.song.createdat });
+            updatedSongs.splice(indexToRemove,1);
             props.addToPlaylist(updatedSongs);
             setAddedState('removed');
-        } else if (page === 'editplaylist') {
-            console.dir('remove');
+        } else if (page === 'editplaylist' || page==='addmore') {
+            console.dir(props.song.createdat);
             console.dir(props.previouslyadded);
-            console.dir(props.song.id);
-            let updatedSongs = props.previouslyadded.filter((item) => { return item.id !== props.song.id });
-            console.dir(props.previouslyadded);
+            let indexToRemove = props.previouslyadded.findIndex((item) => { return item.createdat === props.song.createdat });
+            console.dir(indexToRemove);
+            let updatedSongs = [...props.previouslyadded];
+            updatedSongs.splice(indexToRemove,1);
             props.addToPlaylist(updatedSongs);
             props.addOnEdit(updatedSongs);
             props.refreshExisting(updatedSongs);
@@ -59,14 +65,14 @@ export default function Song(props) {
                         <div className="album-name">{props.album.title}</div>
                     </div>
                     <div className="song-duration">
-                        5:42
+                        5:42 
                     </div>
                     <div className="user-actions">
-                        {/* <div> */}
-                            {(props.page === "createplaylist" || props.page === "editplaylist") && <div className="new-actions">
-                                {addedState !== 'added' ? <PlusSquareFill onClick={() => handleAddSong(props.page)} className="add-icon" size={20}></PlusSquareFill> : <TrashFill onClick={() => removeSong(props.page)} className="delete-icon" size={20}></TrashFill>}</div>
+                       
+                            {(props.page === "createplaylist" || props.page === "editplaylist" || props.page==='addmore') && <div className="new-actions">
+                                {addedState !== 'added' && props.page !=="editplaylist" ? <PlusSquareFill onClick={() => handleAddSong(props.page)} className="add-icon" size={20}></PlusSquareFill> : <TrashFill onClick={() => removeSong(props.page)} className="delete-icon" size={20}></TrashFill>}</div>
                             }
-                        {/* </div> */}
+                     
                     </div>
                 </div>
             </div>}

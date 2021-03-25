@@ -17,10 +17,7 @@ function App() {
 
   useEffect(() => {
     window.innerWidth > 648 ? setOpen(true) : setOpen(false);
-    function handleResize() {
-      window.innerWidth > 648 ? setOpen(true) : setOpen(true);
-    }
-    // window.addEventListener('resize', handleResize);
+    
 
     function fetchFrom(url,setData) {
       fetch(url)
@@ -53,7 +50,7 @@ function App() {
 
    
     albumData ==='default' && window.localStorage.getItem('albumCache') === null ? fetchFrom('https://jsonplaceholder.typicode.com/albums','album'):setAlbumData(window.localStorage.getItem('albumCache'));
-    songsData ==='default'&& window.localStorage.getItem('songsCache') === null ? fetchFrom('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=1000','songs'):setSongsData(window.localStorage.getItem('songsCache'));
+    songsData ==='default'&& window.localStorage.getItem('songsCache') === null ? fetchFrom('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=300','songs'):setSongsData(window.localStorage.getItem('songsCache'));
   }, [albumData,songsData]);
 
   const toggleClick = () => {
