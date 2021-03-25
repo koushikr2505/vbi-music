@@ -1,4 +1,4 @@
-import React , {useState,useEffect} from 'react';
+import React , {useState} from 'react';
 import './Songs.css'
 import {nanoid} from 'nanoid'
 import Song from '../Song'
@@ -28,7 +28,7 @@ export default function Songs(props) {
          return isAddedSong;
     }
      
-    // addedAlready = {props.addedSongs && props.addedSongs.findIndex(song => {return song.id === props.song.id})}
+    
     return (
         <div>
             {props.Songs.length>0 && props.albums.length>0 && 

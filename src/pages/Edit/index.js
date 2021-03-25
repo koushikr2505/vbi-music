@@ -1,15 +1,13 @@
 import React, { useState , useEffect } from 'react'
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SearchBar from '../../components/Search'
 import Songs from '../../components/Songs'
-// import AddedSongs from '../../components/AddedSongs'
 import Divider from '../../components/Divider'
-// import { Modal } from 'react-responsive-modal';
+
 
 export default function Edit(props) {
-    console.dir('-------edit------');
-    console.dir(props);
-    console.dir('-------edit------');
+    const history = useHistory();
     let { playlistid } = useParams();
     const [songList, setSongList] = useState('');
     const [playlistTitle,setPlaylistTitle] = useState('');
@@ -29,13 +27,12 @@ export default function Edit(props) {
 
     const savePlaylist = (e) => {
         e.preventDefault();
-        let updatedSongs = existingSongs.concat(addedSongs);
+        console.dir(props);
         addSongToPlaylist(existingSongs => [...existingSongs,existingSongs.concat(addedSongs)] );
-        addSongToPlaylist(updatedSongs);
-       
+               
         let createdPlaylist = {
             'title': playlistTitle,
-            'songs': addedSongs,
+            'songs': existingSongs,
         };
 
         if (window.localStorage.getItem('playlists')) {
@@ -45,14 +42,11 @@ export default function Edit(props) {
             props.refresh(existingPlaylists);
             window.localStorage.setItem('playlists', JSON.stringify(existingPlaylists));
         } 
-
+        history.push("/playlist/"+playlistid);
     }
     return (
         <div>
-
-
-            <h1>Edit playlist</h1>
-           
+            <h1>Edit playlist</h1>           
             
             <Divider></Divider>
 

@@ -11,7 +11,7 @@ export default function SearchBar(props) {
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState('default');
 
-    const debouncedValue = useDebounce(query, 500);
+    const debouncedValue = useDebounce(query, 250);
     useOutsideClick(ref, () => {
         setSuggestions('default');
     });
@@ -21,12 +21,12 @@ export default function SearchBar(props) {
         setQuery(e.target.value);
         if (e.target.value !== '') {
             setSuggestions('');
-            // props.isDefaultSearch(false);
+          
         } else {
             setSuggestions('default');
-            // props.isDefaultSearch(true);
+           
         }
-        // e.target.value !==''?setSuggestions(''):setSuggestions('default');props.isDefaultSearch(false);
+        
     }
 
     const clearSearch = () => setQuery('');

@@ -12,7 +12,7 @@ export default function Playlist(props) {
     useEffect(() => {
         let lists = window.localStorage.getItem('playlists') ? JSON.parse(window.localStorage.getItem('playlists')) : props.playlists;
         let playlist = lists.length > 0 ? lists[playlistid - 1] : null;
-        // setPlaylistTitle(playlist.title);
+        setPlaylistTitle(playlist.title);
         playlist.songs = playlist.songs.sort(function(a, b) {
             return new Date(b.createdat) - new Date(a.createdat);
         });
@@ -37,7 +37,7 @@ export default function Playlist(props) {
     return (
         <React.Fragment>
             {playlistSongs && playlistSongs.length > 0 ? <div>
-                <h1>{playlistTitle&&playlistTitle}</h1> 
+                <h1>{playlistTitle}</h1> 
                 <Divider></Divider>
                 <div className="edit-shuffle">
                     <Link className="edit-button" to={`/edit/${playlistid}`}>Edit Playlist</Link>

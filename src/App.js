@@ -1,19 +1,25 @@
 import './App.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop'
 import AppDrawer from './components/AppDrawer'
+import useOutsideClick from './components/UseOutsideClick'
 import AllSongs from './pages/AllSongs'
 import CreatePlaylist from './pages/CreatePlaylist'
 import Playlist from './pages/Playlist'
 import Edit from './pages/Edit'
 
 function App() {
+  const ref = useRef();
   
   const [open, setOpen] = useState(false);
   const [albumData, setAlbumData] = useState('default');
   const [songsData, setSongsData] = useState('default');
   const [playlists,refreshlist] = useState([]);
+
+  useOutsideClick(ref, () => {
+    setOpen(false);
+});
 
   useEffect(() => {
     window.innerWidth > 648 ? setOpen(true) : setOpen(false);
@@ -60,7 +66,7 @@ function App() {
   return (
     <Router>
       <div className={`light-theme ${open ? 'nav-open' : ''}`}>
-        <div className="hamburger-container">
+        <div className="hamburger-container" ref={ref}>
           <input type="checkbox" onChange={toggleClick} checked={open} />
           <div className="span-container">
             <span className="block hamburger"></span>
